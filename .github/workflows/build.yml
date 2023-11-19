@@ -119,7 +119,7 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with:
         repo: IdfbAn/woof-CE
-        branch: replace-obsolete-packages
+        branch: testing
         workflow: ${{ startsWith(inputs.kernel, 'debian-') && 'dpup-kernel.yml' || (startsWith(inputs.kernel, 'ubuntu-') && 'upup-kernel.yml' || 'kernel-kit.yml') }}
         workflow_conclusion: success
         name: ${{ env.kernel_artifact }}
