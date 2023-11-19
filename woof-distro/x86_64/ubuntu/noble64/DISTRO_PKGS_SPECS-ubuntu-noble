@@ -152,7 +152,7 @@ yes|fonts-unifont|fonts-unifont|exe,dev,doc>null,nls||deps:yes
 no|fpm2||exe,dev
 no|freeglut|freeglut3,freeglut3-dev|exe,dev,doc,nls
 no|freememapplet||exe
-yes|freetype|libfreetype6,libfreetype-dev,libfreetype6-dev|exe,dev,doc,nls||deps:yes
+yes|freetype|libfreetype6,libfreetype-dev|exe,dev,doc,nls||deps:yes
 yes|fribidi|libfribidi0,libfribidi-dev|exe,dev,doc,nls||deps:yes
 no|fuse|fuse,libfuse2,libfuse-dev|exe,dev,doc,nls||deps:yes
 no|gadmin-rsync|gadmin-rsync|exe,dev>null,doc,nls
@@ -173,7 +173,7 @@ no|get_libreoffice||exe
 yes|gettext-full|gettext,gettext-base|exe,dev>exe,doc,nls||deps:yes
 no|gexec|gexec|exe,dev>null,doc,nls
 no|gftp|gftp-gtk,gftp-common|exe,dev>null,doc,nls
-yes|ghostscript|ghostscript,ghostscript-x,libgs9,libgs9-common,libgs-dev|exe,dev,doc,nls||deps:yes
+yes|ghostscript|ghostscript,ghostscript-x,libgs10,libgs10-common,libgs-dev|exe,dev,doc,nls||deps:yes
 no|gifsicle|gifsicle|exe,dev>null,doc,nls
 yes|git|git|exe>dev,dev,doc,nls||deps:yes
 no|glade2|glade,libgladeui-2-6,libgladeui-common,libgladeui-dev|exe>dev,dev,doc,nls
@@ -245,7 +245,7 @@ yes|htop|htop|exe,dev>null,doc,nls||deps:yes
 no|hunspell|hunspell,libhunspell-*,libhunspell-dev|exe,dev,doc,nls
 no|hunspell-en-us|hunspell-en-us|exe,dev,doc,nls
 no|icedtea-netx|icedtea-netx,default-jre,default-jre-headless,librhino-java,libtagsoup-java|exe,dev,doc,nls #java jnlp, needs openjdk-*-jre
-yes|icu|libicu70,libicu-dev|exe,dev,doc,nls||deps:yes #scribus needs this though it is not listed as a dep. note, it is big, 7MB pkg. crap, better put it into main f.s. NO have manually put this dep into main db. harfbuzz needs icu also.
+yes|icu|libicu72,libicu-dev|exe,dev,doc,nls||deps:yes #scribus needs this though it is not listed as a dep. note, it is big, 7MB pkg. crap, better put it into main f.s. NO have manually put this dep into main db. harfbuzz needs icu also.
 no|id3lib|libid3-3.8.3v5,libid3-3.8.3-dev|exe,dev,doc,nls
 no|ijs|libijs-0.35,libijs-dev|exe,dev,doc,nls
 yes|imake|xutils-dev|exe>dev,dev,doc,nls||deps:yes
@@ -502,7 +502,7 @@ yes|numix-gtk-theme|numix-gtk-theme|exe,dev,doc,nls||deps:yes
 no|numlockx||exe| #needed by shinobars firstrun.
 no|opencv|libopencv-core*,libopencv-imgproc*|exe,dev>null,doc,nls #ffmpeg needs this. dep: libtbb2. have left off the dev deb.
 no|openjdk-jre|openjdk-11-jre,openjdk-11-jre-headless,ca-certificates-java,java-common|exe,dev,doc,nls #needed if icedtea selected
-yes|openldap|libldap-2.5-0|exe,dev,doc,nls||deps:yes
+yes|openldap|libldap2|exe,dev,doc,nls||deps:yes
 no|opensp|opensp,libosp-dev|exe>dev,dev,doc,nls|+sgml-base,+sgml-data,+xml-core
 yes|openssh-client|openssh-client|exe,dev,doc,nls||deps:yes
 yes|openssl|openssl,libssl3,libssl-dev|exe,dev,doc,nls||deps:yes #libssl1.0.2 = older libssl
@@ -534,8 +534,8 @@ no|peasyport||exe| #rcrsn51, alternative to superscan.
 no|peasyprint||exe,dev
 no|peasyscale||exe #rcrsn51, jpg image resizer.
 no|peasyscan_pdf_plugin||exe,dev
-yes|perl|perl,perl-base,perl-modules-5.34|exe,dev,doc,nls||deps:yes
-no|perl_tiny|perl,perl-base,perl-modules-5.34|exe,dev>null,doc,nls||deps:yes
+yes|perl|perl,perl-base,perl-modules-5.36|exe,dev,doc,nls||deps:yes
+no|perl_tiny|perl,perl-base,perl-modules-5.36|exe,dev>null,doc,nls||deps:yes
 no|perl-compress-zlib|libcompress-raw-zlib-perl|exe>dev,dev||deps:yes
 no|perl-digest-sha1|libdigest-sha-perl|exe,dev||deps:yes
 no|perl-extutils-depends|libextutils-depends-perl|exe>dev,dev||deps:yes
@@ -552,12 +552,12 @@ yes|pkgconfig|pkg-config|exe>dev,dev||deps:yes
 no|pmirrorget||exe
 no|pnethood||exe| #using network_roxapp and YASSM instead. leave it in, some users want it.
 no|pnscan||exe,dev,doc,nls #peasyport
-no|poppler|libpoppler102,libpoppler-dev,poppler-utils,libpoppler-glib8,libpoppler-glib-dev|exe,dev
+no|poppler|libpoppler130,libpoppler-dev,poppler-utils,libpoppler-glib8,libpoppler-glib-dev|exe,dev
 yes|popt|libpopt0|exe,dev,doc,nls||deps:yes
 no|powerapplet_tray||exe
 no|ppp|ppp|exe,dev>null
 no|pptp|pptp-linux|exe,dev,doc,nls
-yes|procps|procps,libprocps8|exe,dev,doc,nls||deps:yes
+yes|procps|procps,libproc2-0|exe,dev,doc,nls||deps:yes
 yes|psmisc|psmisc|exe,dev>null,doc,nls||deps:yes
 yes|pulseaudio-compat|libpulse0,libpulse-dev,pulseaudio-utils|exe,dev,doc,nls||deps:yes
 no|pulseaudio|pulseaudio,libpulse-mainloop-glib0,libpulse0,libpulse-dev,libwebrtc-audio-processing1,pulseaudio-utils,pulseaudio-module-bluetooth|exe,dev,doc,nls||deps:yes #needed by mplayer, gnome-mplayer and gmtk
