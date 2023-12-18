@@ -1,16 +1,16 @@
 /**
- * labwc-xdgmenu
+ * sfwbar-xdgmenu
  *
  * This command line application generates an OpenBox menu XML segment based on
- * an Xdg menu structure. Adapted for labwc <https://github.com/johanmalm/labwc>
+ * an Xdg menu structure. Adapted for sfwbar <https://github.com/LBCrion/sfwbar>
  *
- * Usage: labwc-xdgmenu <Xdg menu file>
+ * Usage: sfwbar-xdgmenu <Xdg menu file>
  *
  * Copyright (C) Nathan Fisher <nfisher@grafpup.com>
  * Copyright (C) 2008 Siegfried-A. Gevatter <rainct@ubuntu.com>
  * Copyright (C) 2011 Kévin Joly <joly.kevin25@gmail.com>
  * Copyright (C) 2016 James Budiono <jamesbond3142@gmail.com>
- * Copyright (C) 2021 Michael Amadio <01micko@gmail.com>
+ * Copyright (C) 2023 Michael Amadio <01micko@gmail.com>
  * Originally based upon code by Raul Suarez <rarsa@yahoo.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -77,13 +77,13 @@ int main (int argc, char **argv)
  */
 void show_help()
 {
-    g_printf ("Creates a labwc menu from an Xdg menu structure.\n");
+    g_printf ("Creates a sfwbar menu from an Xdg menu structure.\n");
     g_printf ("\n");
     g_printf ("Usage:\n");
-    g_printf ("  labwc-xdgmenu <Xdg menu file>\n");
+    g_printf ("  sfwbar-xdgmenu <Xdg menu file>\n");
     g_printf ("\n");
     g_printf ("For example:\n");
-    g_printf ("  labwc-xdgmenu \"/etc/xdg/menus/applications.menu\"\n\n");
+    g_printf ("  sfwbar-xdgmenu \"/etc/xdg/menus/applications.menu\"\n\n");
 }
 
 /*=============================================================================
@@ -109,8 +109,9 @@ void process_directory(GMenuTreeDirectory *directory)
 
 start:
    g_printf(
-		  "<menu id=\"xdg-menu-%s\" label=\"%s\">\n",
+		  "\tsubmenu(\" %s%%/usr/local/lib/X11/pixmaps/%s\",\"%s\") {\n",
 		  gmenu_tree_directory_get_name(directory),
+		  gmenu_tree_directory_get_icon(directory),
 		  gmenu_tree_directory_get_name(directory));
 
     GMenuTreeItemType entryType;
@@ -171,7 +172,7 @@ start:
     }
 
     g_hash_table_destroy(history);
-    g_printf("</menu>\n");
+    g_printf("\t}\n");
     g_slist_free (entryList);
 }
 
@@ -182,8 +183,11 @@ void process_entry(GMenuTreeEntry *entry)
 {
     char *name = g_strdup (gmenu_tree_entry_get_name(entry));
     char *exec = g_strdup (gmenu_tree_entry_get_exec(entry));
+    char *icon = g_strdup (gmenu_tree_entry_get_icon(entry));
     char *cmd = exec;
+    char *iconmod = icon;
     int i;
+    size_t len;
 
     for (i = 0; i < strlen(exec) - 1; i++) {
         if (exec[i] == '%')
@@ -207,15 +211,25 @@ void process_entry(GMenuTreeEntry *entry)
         cmd = g_strdup_printf("defaultterminal -e sh -c '%s'", exec);
     }
 
-    g_printf("  <item label=\"%s\">\n", g_strjoinv("&amp;", g_strsplit(name,"&",0))),
-    g_printf("    <action name=\"Execute\"><command>%s</command></action>\n", cmd),
-    g_printf("  </item>\n");
+    if (icon[0] != '/' && (len = strlen(icon)) > 4)
+    {
+        if (icon[len - 4] == '.')
+        {
+            iconmod = g_strndup(icon, len - 4);
+        }
+    }
+
+    g_printf("\t\titem(\" %s%%%s\",Exec \"%s\")\n", g_strjoinv("&amp;", g_strsplit(name, "&" ,0)), iconmod, cmd);
 
     g_free(name);
     g_free(exec);
     if (cmd != exec)
     {
         free(cmd);
+    }
+    if (iconmod != icon)
+    {
+        free(iconmod);
     }
 }
 
@@ -226,7 +240,7 @@ void
 process_separator(GMenuTreeSeparator *entry)
 {
 
-  g_printf(" <separator/> \n");
+  g_printf("\t\tseparator\n");
 }
 /*=============================================================================
  */

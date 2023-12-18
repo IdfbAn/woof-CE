@@ -182,7 +182,7 @@ yes|wireless-tools|wireless-tools,libiw30,libiw-dev|exe,dev,doc,nls||deps:yes
 yes|wireplumber|wireplumber|exe,dev,doc,nls||deps:yes
 yes|wpa_supplicant|wpasupplicant|exe,dev>null,doc,nls||deps:yes
 yes|xdg-utils|xdg-utils|exe,dev,doc,nls||deps:yes
-yes|xorg_dri|libgl1-mesa-dri,mesa-utils|exe,dev,doc,nls||deps:yes
+yes|xorg_dri|libgl1-mesa-dri,mesa-vulkan-drivers,mesa-utils|exe,dev,doc,nls||deps:yes
 yes|xournalpp|xournalpp|exe,dev,doc,nls||deps:yes
 yes|xz|xz-utils,liblzma5,liblzma-dev|exe,dev,doc,nls||deps:yes
 yes|zip|zip|exe,dev>null,doc,nls||deps:yes
@@ -240,6 +240,7 @@ yes|pkgconf|pkgconf|exe>dev,dev||deps:yes
 yes|pkg-config|pkg-config|exe>dev,dev||deps:yes # transitional package, pulls pkgconf into main SFS if not redirected to devx
 yes|texinfo|texinfo|exe>dev,dev,doc>dev,nls>dev||deps:yes
 yes|wayland-dev|libwayland-dev,wayland-protocols,libwayland-bin|exe>dev,dev,doc>dev,nls>dev||deps:yes
+yes|x11-apps|x11-apps|exe>dev,dev,doc>dev,nls>dev||deps:yes # dmz-cursor-theme needs xcursorgen
 yes|xsltproc|xsltproc|exe>dev,dev,doc>dev,nls>dev||deps:yes
 "
 
