@@ -168,7 +168,7 @@ yes|less|less|exe,dev>null,doc,nls||deps:yes
 yes|libarchive|libarchive13t64|exe,dev,doc,nls||deps:yes #needed by mpv.
 yes|libasyncns|libasyncns0|exe,dev,doc,nls||deps:yes #needed by mplayer.
 yes|libbsd|libbsd0|exe,dev,doc,nls||deps:yes #needed by libedit.
-yes|libcanberra|libcanberra0t64,libcanberra-dev,libcanberra-gtk3-0t64,libcanberra-gtk3-dev|exe,dev,doc,nls||deps:yes #libbonobui needs this.
+yes|libcanberra|libcanberra0,libcanberra-dev,libcanberra-gtk3-0,libcanberra-gtk3-dev|exe,dev,doc,nls||deps:yes #libbonobui needs this.
 yes|libcap|libcap2|exe,dev,doc,nls||deps:yes
 yes|libcap-ng|libcap-ng0|exe,dev,doc,nls||deps:yes
 yes|libbrotli|libbrotli1,libbrotli-dev|exe,dev,doc,nls||deps:yes
