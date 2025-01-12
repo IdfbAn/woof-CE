@@ -159,7 +159,7 @@ yes|installwatch|checkinstall|exe>dev,dev,doc,nls||deps:yes
 yes|intltool|intltool|exe>dev,dev,doc,nls||deps:yes #previously only in devx, but need in main f.s. to run momanager without devx.
 yes|iptables|iptables,libip4tc2,libip6tc2,libxtables12,libnftnl11|exe,dev>exe,doc,nls||deps:yes
 yes|itstool|itstool|exe>dev,dev,doc,nls||deps:yes # build-time dependency of gnumeric
-yes|iw|iw|exe,dev,doc,nls||deps:yes
+yes|iw|iw,libiw30t64,libiw-dev|exe,dev,doc,nls||deps:yes
 yes|jq|jq,libjq1|exe,dev,doc,nls||deps:yes
 yes|keyutils|libkeyutils1|exe,dev>null,doc,nls||deps:yes
 yes|kmod|kmod,libkmod2,libkmod-dev|exe,dev,doc,nls||deps:yes #er, no, looks like compiled without gzip support --but i think only need that in initrd, where already have old modprobe.
@@ -325,7 +325,6 @@ yes|vte|libvte-2.91-0,libvte-2.91-common,libvte-2.91-dev|exe,dev,doc,nls||deps:y
 yes|wayland|libwayland-client0,libwayland-cursor0|exe,dev,doc,nls||deps:yes
 yes|wayland-dev|libwayland-dev,wayland-protocols,libwayland-bin|exe>dev,dev,doc,nls||deps:yes
 yes|wget|wget|exe,dev>null,doc,nls||deps:yes
-yes|wireless-tools|wireless-tools,libiw30t64,libiw-dev|exe,dev,doc,nls||deps:yes
 yes|wireplumber|wireplumber|exe,dev,doc,nls||deps:yes
 yes|wpa_supplicant|wpasupplicant|exe,dev>null,doc,nls||deps:yes
 yes|x11proto|x11proto-dev|exe>dev,dev,doc,nls||deps:yes
