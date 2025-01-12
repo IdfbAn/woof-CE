@@ -116,7 +116,7 @@ yes|gatotray||exe,dev,doc,nls
 yes|gawk|gawk|exe,dev>null,doc,nls||deps:yes
 yes|gcc_dev|gcc,g++|exe>dev,dev,doc,nls||deps:yes #cloog-isl removed
 yes|gcc_lib|libgcc-s1,libgomp1,libquadmath0|exe,dev,doc,nls||deps:yes #libcloog-isl4 and libisl15 removed for Bullseye
-yes|gdb|gdb,libboost-regex1.74.0|exe>dev,dev,doc,nls||deps:yes
+yes|gdb|gdb,libboost-regex1.83.0|exe>dev,dev,doc,nls||deps:yes
 yes|gdbm|libgdbm6t64|exe,dev,doc,nls||deps:yes
 yes|gdk-pixbuf|libgdk-pixbuf-2.0-0,libgdk-pixbuf2.0-common,libgdk-pixbuf-2.0-dev,libgdk-pixbuf2.0-0,libgdk-pixbuf2.0-dev,libgdk-pixbuf-xlib-2.0-0,libgdk-pixbuf-xlib-2.0-dev|exe,dev,doc,nls||deps:yes
 yes|genisoimage|genisoimage|exe,dev,doc,nls||deps:yes
