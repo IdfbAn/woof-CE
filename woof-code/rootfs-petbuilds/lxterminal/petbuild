@@ -1,19 +1,23 @@
 download() {
-    [ -f lxterminal-0.4.0.tar.xz ] || wget -t 3 -T 60 -O lxterminal-0.4.0.tar.xz https://sourceforge.net/projects/lxde/files/LXTerminal%20%28terminal%20emulator%29/LXTerminal%200.4.x/lxterminal-0.4.0.tar.xz/download
+    [ -f lxterminal-master.tar.xz ] || wget -t 3 -T 60 -O lxterminal-master.tar.gz https://github.com/lxde/lxterminal/archive/refs/heads/master.tar.gz
 }
 
 build() {
-    tar -xJf lxterminal-0.4.0.tar.xz
-    cd lxterminal-0.4.0
+    tar -xJf lxterminal-master.tar.gz
+    cd lxterminal-master
     patch -p1 < ../colors.patch
     if [ $PETBUILD_GTK -eq 3 ]; then
+        ./autogen.sh
         ./configure --prefix=/usr --enable-gtk3
     elif pkg-config --exists vte; then
+        ./autogen.sh
         ./configure --prefix=/usr
     else
         # we have no choice because only the GTK+ 3 variant of VTE is installed
+        ./autogen.sh
         ./configure --prefix=/usr --enable-gtk3
     fi
+    make
     make install
     cd ..
     rm -rf /usr/share/icons
