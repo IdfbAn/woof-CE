@@ -31,7 +31,7 @@ yes|apr-util|apr-util|exe>dev,dev,doc,nls
 no|apulse||exe,dev,doc,nls
 yes|arp-scan||exe,dev
 yes|aspell|aspell|exe,dev,doc,nls
-yes|atk|atk|exe,dev,doc,nls
+#EXPLAIN YOURSELF PATRICK yes|atk|atk|exe,dev,doc,nls
 yes|atkmm|atkmm|exe,dev,doc,nls
 yes|attr|attr|exe,dev,doc,nls
 yes|audiofile|audiofile|exe,dev,doc,nls
@@ -60,7 +60,7 @@ yes|cifs-utils|cifs-utils|exe,dev,doc,nls
 yes|cmake|cmake,libidn|exe>dev,dev,doc,nls
 yes|coreutils|coreutils|exe,dev>null,doc,nls
 yes|cpio|cpio|exe,dev>null,doc,nls
-yes|crda|crda|exe,dev,doc,nls
+#EXPLAIN YOURSELF PATRICK yes|crda|crda|exe,dev,doc,nls
 yes|cryptsetup||exe # must use wce static binary
 yes|cups|cups|exe,dev,doc>exe,nls
 yes|cups-filters|cups-filters|exe,dev,doc,nls
@@ -132,7 +132,7 @@ yes|frugalpup||exe
 yes|fuse|fuse|exe,dev,doc>null,nls
 yes|fuse-exfat||exe
 yes|galculator||exe,dev
-yes|gamin|gamin|exe,dev,doc,nls
+#EXPLAIN YOURSELF PATRICK yes|gamin|gamin|exe,dev,doc,nls
 yes|gawk|gawk|exe,dev,doc,nls
 yes|gc|gc|exe,dev,doc,nls
 yes|gcc_dev|gcc,gcc-g++,gcc-go,gmp,elfutils,libmpc|exe>dev,dev,doc,nls
@@ -185,7 +185,8 @@ no|grub2_efi||exe
 yes|grub4dos_u||exe
 yes|gsettings-desktop-schemas|gsettings-desktop-schemas|exe,dev,doc,nls
 yes|gtk+|gtk+2,libffi|exe,dev,doc,nls
-yes|gtk+3|gtk+3,at-spi2-atk,at-spi2-core|exe,dev,doc,nls
+#EXPLAIN YOURSELF PATRICK yes|gtk+3|gtk+3,at-spi2-atk,at-spi2-core|exe,dev,doc,nls
+yes|gtk+3|gtk+3,at-spi2-core|exe,dev,doc,nls
 no|gtk2dialog||exe,doc>exe
 no|gtkdialog||exe,dev,doc>dev
 yes|gtkmm2|gtkmm2|exe,dev,doc,nls
