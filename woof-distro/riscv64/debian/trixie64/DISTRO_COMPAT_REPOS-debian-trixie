@@ -6,6 +6,10 @@ if [ "$DISTRO_COMPAT_VERSION" = "" ] ; then
 	[ -f ./DISTRO_SPECS ] && . ./DISTRO_SPECS
 fi
 
+case "$DISTRO_TARGETARCH" in
+	riscv64) DBIN_ARCH=riscv64 ;;
+esac
+
 #----------------------
 #PKG_DOCS_DISTRO_COMPAT - where to download the compat-distro pkgs databases from
 #---------------------
@@ -15,10 +19,10 @@ fi
 #   3 - name of db file when local and after being processed into standard format
 
 PKG_DOCS_DISTRO_COMPAT="
-z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/main/binary-${DISTRO_TARGETARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-main
-z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/non-free/binary-${DISTRO_TARGETARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-non-free
-z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/non-free-firmware/binary-${DISTRO_TARGETARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-non-free-firmware
-z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/contrib/binary-${DISTRO_TARGETARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-contrib
+z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/main/binary-${DBIN_ARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-main
+z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/non-free/binary-${DBIN_ARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-non-free
+z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/non-free-firmware/binary-${DBIN_ARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-non-free-firmware
+z|https://http.us.debian.org/debian/dists/${DISTRO_COMPAT_VERSION}/contrib/binary-${DBIN_ARCH}/Packages.xz|Packages-debian-${DISTRO_COMPAT_VERSION}-contrib
 "
 
 #-------------------
