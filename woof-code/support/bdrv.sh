@@ -17,6 +17,7 @@ x86_64) ARCH=amd64 ;;
 x86) ARCH=i386  ;;
 arm) ARCH=armhf ;;
 arm64) ARCH=aarch64 ;;
+riscv64) ARCH=riscv64 ;;
 *) exit 1 ;;
 esac
 
