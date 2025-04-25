@@ -32,6 +32,9 @@ jobs:
           - release: trixie
             arch: x86_64
             base: config.amd64_none_amd64.xz
+          - release: trixie
+            arch: riscv64
+            base: config.riscv64_none_riscv64.xz
           - release: sid
             arch: x86_64
             base: config.amd64_none_amd64.xz
