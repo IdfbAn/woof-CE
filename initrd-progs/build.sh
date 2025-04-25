@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ARCH_LIST="i686 x86_64 arm aarch64"
+ARCH_LIST="i686 x86_64 arm aarch64 riscv64"
 
 INITRD_STATIC='initrd_progs-static.tar.xz'
 PREBUILT_BINARIES="https://github.com/puppylinux-woof-CE/initrd_progs/releases/latest/download/${INITRD_STATIC}"
