@@ -3,6 +3,7 @@ if [ -z "$WOOF_CFLAGS"]; then
     arm) WOOF_CFLAGS="-march=armv7-a -mfpu=neon-vfpv4 -mfloat-abi=hard" ;;
     x86) WOOF_CFLAGS="-march=i686 -mtune=i686" ;;
     x86_64) WOOF_CFLAGS="-march=x86-64 -mtune=generic" ;;
+    riscv64) WOOF_CFLAGS="-march=rv64g -mtune=generic-ooo" ;;
     esac
 fi
 
