@@ -66,6 +66,7 @@ function set_archdir_var() {
 			x86_64) ARCHDIR='x86_64-linux-gnu' ;;
 			arm) ARCHDIR='arm-linux-gnueabihf' ;;
 			arm64|aarch64) ARCHDIR='aarch64-linux-gnu' ;;
+			riscv64) ARCHDIR='riscv64-linux-gnu' ;;
 		esac
 	esac
 }
@@ -307,7 +308,7 @@ mergedir() {
 
 usrmerge() {
 	USRDIRS="bin sbin lib"
-	[ "$DISTRO_TARGETARCH" = "x86_64" ] && USRDIRS="$USRDIRS lib64 lib32 libx32"
+	[ "$DISTRO_TARGETARCH" = "x86_64" || "$DISTRO_TARGETARCH" = "riscv64" ] && USRDIRS="$USRDIRS lib64 lib32 libx32"
 
 	for USRDIR in $USRDIRS; do
 		[ -d ${1}/${USRDIR} ] && mergedir ${1}/${USRDIR} ${1}/usr/${USRDIR}
