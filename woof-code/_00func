@@ -308,7 +308,9 @@ mergedir() {
 
 usrmerge() {
 	USRDIRS="bin sbin lib"
-	[ "$DISTRO_TARGETARCH" = "x86_64" || "$DISTRO_TARGETARCH" = "riscv64" ] && USRDIRS="$USRDIRS lib64 lib32 libx32"
+	if [ "$DISTRO_TARGETARCH" = "x86_64" -o "$DISTRO_TARGETARCH" = "riscv64" ]; then
+		USRDIRS="$USRDIRS lib64 lib32 libx32"
+	fi
 
 	for USRDIR in $USRDIRS; do
 		[ -d ${1}/${USRDIR} ] && mergedir ${1}/${USRDIR} ${1}/usr/${USRDIR}
