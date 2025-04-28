@@ -154,7 +154,7 @@ jobs:
           petbuild-sources-${{ inputs.arch }}-
           petbuild-sources-
     - name: 3builddistro
-      timeout-minutes: 180
+      timeout-minutes: 420
       run: |
         sudo chown -R root:root petbuild-{sources,cache,output}
         sudo mv petbuild-{sources,cache,output} ../woof-out_*/
