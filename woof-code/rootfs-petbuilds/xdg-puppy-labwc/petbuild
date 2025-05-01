@@ -7,7 +7,11 @@ build() {
     cd gnome-menus-2.14.3
     sed s~fam.h~doesnotexist.h~ -i configure
     patch -p1 < ../terminal.patch
-    ./configure --prefix=/usr --sysconfdir=/etc --disable-python
+    if [ "$DISTRO_TARGETARCH" = "riscv64" ]; then
+        ./configure --build=riscv64-unknown-linux-gnu --prefix=/usr --sysconfdir=/etc --disable-python
+    else
+        ./configure --prefix=/usr --sysconfdir=/etc --disable-python
+    fi
     make install
     cd ..
 

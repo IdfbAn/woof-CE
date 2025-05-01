@@ -21,31 +21,60 @@ build() {
         DISABLE_OUTPUT="--disable-pulse --disable-alsa"
     fi
     CFLAGS="$CFLAGS -Wno-incompatible-pointer-types -Wno-int-conversion" \
-    ./configure --prefix=/usr \
-                --disable-nullout \
-                --disable-oss \
-                --disable-vfs-curl \
-                --disable-lfm \
-                --disable-artwork \
-                --disable-artwork-network \
-                --disable-vtx \
-                --disable-adplug \
-                --disable-ffmpeg \
-                --disable-gme \
-                --disable-notify \
-                --disable-shellexec \
-                --disable-wildmidi \
-                --disable-tta \
-                --disable-mms \
-                --disable-vfs-zip \
-                --disable-converter \
-                --disable-dumb \
-                --disable-psf \
-                --disable-shellexecui \
-                --disable-sc68 \
-                --disable-soundtouch \
-                $DISABLE_GTK \
-                $DISABLE_OUTPUT
+    if [ "$DISTRO_TARGETARCH" = "riscv64" ]; then
+        ./configure --prefix=/usr \
+                    --build=riscv64-unknown-linux-gnu \
+                    --disable-nullout \
+                    --disable-oss \
+                    --disable-vfs-curl \
+                    --disable-lfm \
+                    --disable-artwork \
+                    --disable-artwork-network \
+                    --disable-vtx \
+                    --disable-adplug \
+                    --disable-ffmpeg \
+                    --disable-gme \
+                    --disable-notify \
+                    --disable-shellexec \
+                    --disable-wildmidi \
+                    --disable-tta \
+                    --disable-mms \
+                    --disable-vfs-zip \
+                    --disable-converter \
+                    --disable-dumb \
+                    --disable-psf \
+                    --disable-shellexecui \
+                    --disable-sc68 \
+                    --disable-soundtouch \
+                    $DISABLE_GTK \
+                    $DISABLE_OUTPUT
+    else
+        ./configure --prefix=/usr \
+                    --disable-nullout \
+                    --disable-oss \
+                    --disable-vfs-curl \
+                    --disable-lfm \
+                    --disable-artwork \
+                    --disable-artwork-network \
+                    --disable-vtx \
+                    --disable-adplug \
+                    --disable-ffmpeg \
+                    --disable-gme \
+                    --disable-notify \
+                    --disable-shellexec \
+                    --disable-wildmidi \
+                    --disable-tta \
+                    --disable-mms \
+                    --disable-vfs-zip \
+                    --disable-converter \
+                    --disable-dumb \
+                    --disable-psf \
+                    --disable-shellexecui \
+                    --disable-sc68 \
+                    --disable-soundtouch \
+                    $DISABLE_GTK \
+                    $DISABLE_OUTPUT
+    fi
     make
     rm -f deadbeef
     make install
