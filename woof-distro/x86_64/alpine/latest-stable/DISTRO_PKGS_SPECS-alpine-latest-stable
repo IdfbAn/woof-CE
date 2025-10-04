@@ -33,6 +33,7 @@ yes|acl|libacl1|exe,dev,doc,nls||deps:yes
 yes|adduser|adduser|exe,dev,doc,nls
 yes|alsa-lib|alsa-lib,alsa-lib-dev,alsa-topology-conf,alsa-ucm-conf,alsaconf|exe,dev,doc,nls||deps:yes
 yes|alsa-utils|alsa-utils|exe,dev,doc,nls||deps:yes
+yes|apk|apk-tools,apk-tools-doc|exe,dev>null,doc,nls||deps:yes
 yes|atk|libatk-1.0|exe,dev,doc,nls||deps:yes
 yes|at-spi2-atk|libatspi2.0,libatk-bridge2.0,libatk-bridge2.0-dev,libatspi2.0-dev|exe,dev,doc,nls||deps:yes #needed by gtk+3.
 yes|base-files|base-files|exe>null,dev>null,doc>null,nls>null
@@ -61,15 +62,12 @@ yes|dbus|dbus,dbus-dev|exe,dev,doc,nls||deps:yes
 yes|dbus-x11|dbus-x11|exe,dev,doc,nls||deps:yes
 yes|d-conf|dconf-gsettings-backend,dconf-service|exe,dev,doc,nls||deps:yes #needed by gsettings-desktop-settings
 yes|deadbeef-deps|libjansson-dev,libmpg123-dev,libcddb2-dev,libcdio-paranoia-dev,libfaad-dev|exe,dev,doc,nls||deps:yes
-yes|debconf|debconf|exe,dev,doc,nls
-yes|debianutils|debianutils|exe,dev,doc,nls||deps:yes
 yes|desktop-file-utils|desktop-file-utils|exe,dev,doc,nls||deps:yes
 yes|dialog|dialog|exe,dev>null,doc,nls||deps:yes
 yes|diffutils|diffutils|exe,dev>null,doc,nls||deps:yes
 yes|dkms|dkms|exe,dev>exe,doc,nls||deps:yes
 yes|dmidecode|dmidecode|exe,dev>null,doc,nls||deps:yes
 yes|dosfstools|dosfstools|exe,dev>null,doc,nls||deps:yes
-yes|dpkg-deb|dpkg|exe,dev>null,doc,nls||deps:yes
 yes|e2fsprogs|e2fsprogs,libblkid-dev,comerr-dev,ss-dev|exe,dev,doc,nls||deps:yes #note, strange ubuntu seems to have lost the dev component of libuuid.
 yes|efibootmgr|efibootmgr|exe,dev,doc,nls||deps:yes
 yes|eject|eject|exe,dev>null,doc,nls||deps:yes
@@ -160,7 +158,6 @@ yes|procps|procps|exe,dev,doc,nls||deps:yes
 yes|psmisc|psmisc|exe,dev>null,doc,nls||deps:yes
 yes|putty|putty|exe,dev,doc,nls||deps:yes
 yes|python|python-is-python3,python3|exe,dev,doc,nls||deps:yes
-yes|python3-pkg-resources|python3-pkg-resources|exe,dev,doc,nls||deps:yes # dependency of gdebi
 yes|readline|libreadline8,libreadline-dev,readline-common|exe,dev,doc,nls||deps:yes
 yes|rsync|rsync|exe,dev,doc,nls||deps:yes
 yes|sed|sed|exe,dev>null,doc,nls||deps:yes
