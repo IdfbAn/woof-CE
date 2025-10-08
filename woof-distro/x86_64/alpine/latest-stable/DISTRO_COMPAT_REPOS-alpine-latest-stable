@@ -22,7 +22,7 @@ esac
 
 PKG_DOCS_DISTRO_COMPAT="
 z|https://dl-cdn.alpinelinux.org/alpine/${DISTRO_COMPAT_VERSION}/main/${DISTRO_TARGETARCH}/APKINDEX.tar.gz|Packages-alpine-${DISTRO_COMPAT_VERSION}-main
-z|https://dl-cdn.alpinelinux.org/alpine/${DISTRO_COMPAT_VERSION}/community/${DISTRO_TARGETARCH}}/APKINDEX.tar.gz|Packages-alpine-${DISTRO_COMPAT_VERSION}-community
+z|https://dl-cdn.alpinelinux.org/alpine/${DISTRO_COMPAT_VERSION}/community/${DISTRO_TARGETARCH}/APKINDEX.tar.gz|Packages-alpine-${DISTRO_COMPAT_VERSION}-community
 "
 
 #-------------------
