@@ -3,6 +3,7 @@ name: slackware-s15pup
 on:
   schedule:
     - cron: '0 0 2 * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,11 +13,11 @@ jobs:
           - arch: x86_64
             compat-distro: slackware64
             compat-distro-version: s15pup64
-            kernel: 5.15.x
+            kernel: 6.12.x
           - arch: x86
             compat-distro: slackware
             compat-distro-version: s15pup32
-            kernel: 5.15.x
+            kernel: 6.6.x
     if: github.repository == 'puppylinux-woof-CE/woof-CE'
     uses: ./.github/workflows/build.yml
     with:

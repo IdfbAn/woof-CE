@@ -3,6 +3,7 @@ name: void-voidpup
 on:
   schedule:
     - cron: '0 0 2,16 * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -11,10 +12,10 @@ jobs:
         include:
           - arch: x86_64
             compat-distro-version: voidpup64
-            kernel: 6.1.x
+            kernel: 6.12.x
           - arch: x86
             compat-distro-version: voidpup32
-            kernel: 6.1.x
+            kernel: 6.12.x
     if: github.repository == 'puppylinux-woof-CE/woof-CE'
     uses: ./.github/workflows/build.yml
     with:

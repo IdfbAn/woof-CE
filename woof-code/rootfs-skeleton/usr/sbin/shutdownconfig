@@ -75,9 +75,9 @@ if [ -n "$DISPLAY" -o -n "$WAYLAND_DISPLAY" ];then
  export XDIALOG_HIGH_DIALOG_COMPAT=true #for Xdialog.
  DIALOGEXE="pupdialog"
  DIALOGEXE2="Xdialog"
- BACKGROUNDYELLOW='--background \#FFFF80' #110924 change to pale-yellow. yellow' #only works pupdialog.
- BACKGROUNDPINK='--background pink'     #ditto.
- BACKGROUNDORANGE='--background \#FFDC32' #110924 change to pale-orange. orange' #ditto.
+ BACKGROUNDYELLOW='--foreground black --background \#FFFF80' #110924 change to pale-yellow. yellow' #only works pupdialog.
+ BACKGROUNDPINK='--foreground black --background pink'     #ditto.
+ BACKGROUNDORANGE='--foreground black --background \#FFDC32' #110924 change to pale-orange. orange' #ditto.
  TITLEPARAM='--backtitle'
  YESPARAM='--ok-label'
  NOPARAM='--cancel-label'

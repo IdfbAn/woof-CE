@@ -1402,7 +1402,7 @@ Note: Before downloading the langpack, you will have to make an Internet connect
      if [ -n "$DISPLAY" -o -n "$WAYLAND_DISPLAY" ];then
       [ $wPID -ne 0 ] && kill $wPID #120524
       wPID=0
-      LANG=${NEWLANG} pupdialog --background '#8080FF' --colors --backtitle "${AVAILTITLE}" --msgbox "${AVAILMSG3}\n\n${AVAILMSG}" 0 0
+      LANG=${NEWLANG} pupdialog --foreground black --background '#8080FF' --colors --backtitle "${AVAILTITLE}" --msgbox "${AVAILMSG3}\n\n${AVAILMSG}" 0 0
      else
       dialog --msgbox "`eval_gettext \"Note, you will need to install langpack_\\\${LANG12} or langpack_\\\${LANG1} PET package to more fully translate Puppy to your language. Run the Puppy Package Manager after connection to the Internet, to download and install this package.\"`" 0 0 >/dev/console
      fi

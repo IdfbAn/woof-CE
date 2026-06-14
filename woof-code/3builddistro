@@ -572,8 +572,8 @@ VERSION_ID=$DISTRO_VERSION
 PRETTY_NAME="$DISTRO_NAME $DISTRO_VERSION"
 ANSI_COLOR="0;34"
 CPE_NAME="cpe:/o:puppy:puppy_linux:$DISTRO_VERSION"
-HOME_URL="http://puppylinux.com/"
-SUPPORT_URL="http://www.murga-linux.com/puppy/index.php"
+HOME_URL="https://www.puppylinux.com/"
+SUPPORT_URL="https://forum.puppylinux.com"
 BUG_REPORT_URL="https://github.com/puppylinux-woof-CE/woof-CE"
 _EOF
 rm -f etc/os-release
@@ -1016,7 +1016,7 @@ exec $value \"\$@\"" > ${DRV_TGT}/usr/local/bin/$field
 	chmod 755 ${DRV_TGT}/usr/local/bin/$field
 done
 
-if [ -e rootfs-complete/usr/local/apps/ROX-Filer/AppRun -o "$DISTRO_VARIANT" = "xwayland" ]; then
+if [ -e rootfs-complete/usr/local/apps/ROX-Filer/AppRun -o -e rootfs-complete/usr/bin/spacefm -o "$DISTRO_VARIANT" = "xwayland" ]; then
 	echo "Checking for missing default apps ..."
 	for default in rootfs-complete/usr/local/bin/default* ; do
 		app=${default##*/}

@@ -222,7 +222,7 @@ fi
 log_msg "kernel_version=${kernel_version}"
 log_msg "kernel_version_info=${kernel_version_info}"
 case "$kernel_version" in
-	3.*|4.*|5.*|6.*) ok=1 ;; #----
+	3.*|4.*|5.*|6.*|7.*) ok=1 ;; #----
 	*) exit_error "ERROR: Unsupported kernel version" ;;
 esac
 
@@ -238,11 +238,13 @@ aufs_git_3="https://github.com/puppylinux-woof-CE/aufs3-standalone.git"
 aufs_git_4="https://github.com/sfjro/aufs4-standalone.git"
 aufs_git_5="https://github.com/sfjro/aufs-standalone.git"
 aufs_git_6="https://github.com/sfjro/aufs-standalone.git"
+aufs_git_7="https://github.com/sfjro/aufs-standalone.git"
 [ ! "$kernel_mirrors" ] && kernel_mirrors="https://www.kernel.org/pub/linux/kernel"
 ksubdir_3=v3.x #http://www.kernel.org/pub/linux/kernel/v3.x
 ksubdir_4=v4.x
 ksubdir_5=v5.x
 ksubdir_6=v6.x
+ksubdir_7=v7.x
 #-- random kernel mirror first
 rn=$(( ( RANDOM % $(echo "$kernel_mirrors" | wc -l) )  + 1 ))
 x=0
@@ -343,6 +345,7 @@ case $kernel_series in
 	4) ksubdir=${ksubdir_4} ; aufs_git=${aufs_git_4} ; aufs_git_dir=aufs4_sources_git ;;
 	5) ksubdir=${ksubdir_5} ; aufs_git=${aufs_git_5} ; aufs_git_dir=aufs5_sources_git ;;
 	6) ksubdir=${ksubdir_6} ; aufs_git=${aufs_git_6} ; aufs_git_dir=aufs6_sources_git ;;
+	7) ksubdir=${ksubdir_7} ; aufs_git=${aufs_git_7} ; aufs_git_dir=aufs7_sources_git ;;
 esac
 
 ## create directories for the results
@@ -698,6 +701,9 @@ fi
 
 #####################
 # pause to configure
+# add-500hz.txt adds 500hz to the standard set
+sed -i $'/config HZ_1000/{e cat ../add-500hz.txt\n}' ../linux/kernel/Kconfig.hz
+sed -i '/default 300 if HZ_300/a \\tdefault 500 if HZ_500' ../linux/kernel/Kconfig.hz
 function do_kernel_config() {
 	log_msg "$MAKE $1"
 	$MAKE $1 ##
