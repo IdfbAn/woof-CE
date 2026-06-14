@@ -346,6 +346,32 @@ do
   void)
 	support/void/void0setup
    ;;
+  alpine)
+    p="" #package name. this and the following variables are reset for each package
+    v="" #version
+    s="" #size
+    d="" #description
+
+    while IFS= read -r line; do
+      if [ -z $line ]; then #packages in APKINDEX are separated by blank lines
+        echo -n "" > /tmp/${ONE_PKGLISTS_COMPAT}temp
+      else
+        field=${line:2}
+        case $line in
+          P:*) p=$field ;;
+          V:*) v=$field ;;
+          S:*)
+            if [ ${#field} -ge 4]; then #if package size is at least 1 kilobyte
+              field="${field:0:-3}K"
+            fi
+            s=$field
+          ;;
+          T:*) d=$field ;;
+        esac
+        echo "$p-$v|$p|$v|||$s||||$d|" > /tmp/${ONE_PKGLISTS_COMPAT}temp
+      fi
+    done < $ONE_PKGLISTS_COMPAT
+  ;;
   puppy)
    echo "...it's already in the Puppy standard format."
   ;;
