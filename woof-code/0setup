@@ -122,6 +122,7 @@ function download_pkg_dbs() {
 	 mv -f ${DLFILE}.tmp ${DLFILE}
 	 RETSTAT=0
 	 case "$DLFILE" in
+     *.tar.gz) tar -xvf $DLFILE ; RETSTAT=$? ; xDLFILE=${xDLFILE%.*} ;; #APKINDEX
 	   *.gz)  gunzip  $DLFILE ; RETSTAT=$? ; xDLFILE=${xDLFILE%.*} ;;
 	   *.bz2) bunzip2 $DLFILE ; RETSTAT=$? ; xDLFILE=${xDLFILE%.*} ;;
 	   *.xz)  unxz    $DLFILE ; RETSTAT=$? ; xDLFILE=${xDLFILE%.*} ;;
