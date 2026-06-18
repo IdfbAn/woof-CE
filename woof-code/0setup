@@ -355,7 +355,7 @@ do
 
     while IFS= read -r line; do
       if [ -z $line ]; then #packages in APKINDEX are separated by blank lines
-        echo -n "" > /tmp/${ONE_PKGLISTS_COMPAT}temp
+        echo -n "" >> /tmp/${ONE_PKGLISTS_COMPAT}temp
       else
         field=${line:2}
         case $line in
@@ -369,7 +369,7 @@ do
           ;;
           T:*) d=$field ;;
         esac
-        echo "$p-$v|$p|$v|||$s||||$d|" > /tmp/${ONE_PKGLISTS_COMPAT}temp
+        echo "$p-$v|$p|$v|||$s||||$d|" >> /tmp/${ONE_PKGLISTS_COMPAT}temp
       fi
     done < $ONE_PKGLISTS_COMPAT
   ;;
